@@ -1,0 +1,1 @@
+Run main.py in the root project directory and select these test scripts to compile!
