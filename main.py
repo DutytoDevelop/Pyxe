@@ -325,7 +325,7 @@ class PythonFile:
         self.specpath = f'--specpath={os.path.join(project_dir, "dist")}'
         self.cleanbuild = '--clean'
         self.windowed = '--windowed'
-        self.log_level = '--log-level=INFO'
+        #self.log_level = '--log-level=INFO' # Commented out since it's not needed for the STDOUT redirect & it also causes errors for PyInstaller
         self.console = '--noconsole'
 
         #
