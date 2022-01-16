@@ -1,4 +1,3 @@
-import logging
 #  ⚠ IMPORTANT ⚠:
 #  If you're referencing a file or folder in your Python project, please use the following code snippet in your project
 #  so that PyInstaller can find the file and package it into the executable file correctly. Failing to do this may lead
@@ -7,23 +6,28 @@ import logging
 #  Please see: https://stackoverflow.com/questions/7674790/bundling-data-files-with-pyinstaller-onefile for more details
 #
 #  Code Snippet: Grabs the absolute path from the relative path (for packaging external files INTO the executable)
+
+# Modules that help tie the PyInstaller and Tkinter modules together 
 import os
 import platform
-from PIL import Image, ImageTk
-import tkinter
+import logging
 import webbrowser
-from tkinter import messagebox
 import shutil
 import sys
 from threading import Thread
-from tkinter import filedialog, Tk, Grid, Radiobutton, BooleanVar, LabelFrame, END, Text, Toplevel, Menu, Canvas
+
+# GUI-related modules
+import tkinter
+from tkinter import filedialog, Tk, Grid, Radiobutton, BooleanVar, LabelFrame, END, Text, Toplevel, Menu, Canvas, messagebox
 from tkinter.scrolledtext import ScrolledText
 from tkinter.ttk import Entry, Label, Button, Frame, OptionMenu
-
-import PIL.Image
-from PyInstaller.__main__ import run as pyxe_compiler
-from PIL import Image, ImageTk
 from win32api import GetSystemMetrics
+import PIL.Image
+from PIL import Image, ImageTk
+
+# PyInstaller module that does the compiling
+from PyInstaller.__main__ import run as pyxe_compiler
+
 
 def resource_path(relative_path):
     """ Get absolute path to resource, works for dev and for PyInstaller """
@@ -84,7 +88,6 @@ class GUI:
         self.optionmenu.add_command(label="Help", command=open_help_page)
         self.optionmenu.add_separator()
         self.optionmenu.add_command(label="Exit", command=self.exit_compiler)
-
         self.root.config(menu=self.menubar)
 
         #  A grid frame that helps layout the widgets on the root window
@@ -443,6 +446,7 @@ if __name__ == '__main__':
 
     #  Pyxe currently supports Windows only since I haven't set up a linux or Mac computer to handle different OS'es
     if (detected_os == 'Windows'):
+        
         #  Main process for Pyxe
         Pyxe = GUI()
         Pyxe.run_autocompiler()
