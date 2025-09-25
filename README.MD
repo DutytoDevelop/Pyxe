@@ -105,7 +105,6 @@ _Note: _
 
 ## To-Do:
 
- - ✔️ Piping the output of PyInstaller through the GUI itself for real-time updates
  - 🚧 Implement system to be compatible with multiple operating systems
  - 🚧 Fix code to allow importing bundled data from multiple directories instead of just one
 
