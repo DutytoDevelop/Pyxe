@@ -155,8 +155,8 @@ class GUI:
         self.build_directory_textbox.configure(state='disabled')
         self.build_directory_textbox.grid(row=4, column=2, sticky='EW', padx=(0, 5), pady=5, ipadx=5)
 
-        select_directory = Button(self.frame, text="Select Directory",
-                                  command=lambda: self.set_directory_path(title="Select Directory",
+        select_directory = Button(self.frame, text="Select Build Directory",
+                                  command=lambda: self.set_directory_path(title="Select Build Directory",
                                                                           initialdir=project_dir,
                                                                           element=self.build_directory_textbox))
         select_directory.configure(width=20)
