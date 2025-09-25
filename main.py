@@ -400,7 +400,7 @@ class PythonFile:
             Pyxe.compiler_text.configure(state="normal")
             Pyxe.compiler_text.delete("1.0", END)
             Pyxe.compiler_text.configure(state="disabled")
-            pyxe_compiler(self.__dict__.values())
+            pyxe_compiler(list(self.__dict__.values()))
             os.startfile(Pyxe.executable_info.distpath.split("=")[1])
             shutil.rmtree(Pyxe.executable_info.specpath.split("=")[1])
         return
