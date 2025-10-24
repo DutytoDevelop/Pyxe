@@ -181,7 +181,7 @@ class GUI:
                                  command=lambda: self.set_directory_path(title="Add Directory",
                                                                          initialdir=project_dir,
                                                                          element=self.data_folder_directory_textbox,
-                                                                         append_directory=True))
+                                                                         clear_directory=True))
         clear_data_folder.configure(width=8)
         clear_data_folder.grid(row=5, column=3, sticky="E", padx=10, pady=5, ipadx=5)
 
@@ -265,7 +265,8 @@ class GUI:
     def get_entrybox_text(self, element):
         self.element = element
         element.configure(state="normal")
-        entrybox_text = os.path.join(self.element.get())
+        print(self.element.get())
+        entrybox_text = self.element.get()
         element.configure(state="disabled")
         return entrybox_text
 
@@ -273,19 +274,11 @@ class GUI:
     def set_entrybox_text(self, element: Text, text: str, append_text: bool = False):
         self.element = element
         self.text = text
-        if (append_text is True):
-            if (detected_os == 'windows'):
-                seperator = ';'
-            else:
-                seperator = ':'
-            if (self.get_entrybox_text(self.element) != ''):
-                self.text = self.text
-            else:
-                self.text = seperator.join(self.get_entrybox_text(self.element), self.text)
-            self.element.insert('end', self.text)
-        else:
-            self.element.delete(0, 'end')
-            self.element.insert(0, self.text)
+        os_independent_seperator = os.pathsep
+        if (append_text == True):
+            self.text += self.get_entrybox_text(self.element) + os_independent_seperator + self.text
+        self.element.delete(0, 'end')
+        self.element.insert(0, self.text)
         return
 
     #  Return path of directory if it exists
@@ -296,11 +289,16 @@ class GUI:
         return self.selected_directory_or_file
 
     #  Set Tkinter's directory selection dialog box to given directory
-    def set_directory_path(self, title, initialdir, element, append_directory=False):
-        self.directory_path = self.get_directory_path(title, initialdir)
-        element.configure(state="enabled")
-        self.set_entrybox_text(element, self.directory_path, append_text=append_directory)
-        element.configure(state="disabled")
+    def set_directory_path(self, title, initialdir, element, append_directory=False, clear_directory=False):
+        if (clear_directory == False):
+            self.directory_path = self.get_directory_path(title, initialdir)
+            element.configure(state="enabled")
+            self.set_entrybox_text(element, self.directory_path, append_text=append_directory)
+            element.configure(state="disabled")
+        else:
+            element.configure(state="enabled")
+            self.set_entrybox_text(element, "")
+            element.configure(state="disabled")
         return
 
     #  Return filepath for the file
