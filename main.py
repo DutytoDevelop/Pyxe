@@ -13,6 +13,7 @@ import platform
 import logging
 import webbrowser
 import shutil
+import subprocess
 import sys
 from threading import Thread
 
@@ -21,7 +22,6 @@ import tkinter
 from tkinter import filedialog, Tk, Grid, Radiobutton, BooleanVar, LabelFrame, END, Text, Toplevel, Menu, Canvas, messagebox
 from tkinter.scrolledtext import ScrolledText
 from tkinter.ttk import Entry, Label, Button, Frame, OptionMenu
-from win32api import GetSystemMetrics
 import PIL.Image
 from PIL import Image, ImageTk
 
@@ -57,7 +57,10 @@ class GUI:
             top.title("About Me")
             top.geometry = "500x400"
             top.resizable(False,False)
-            top.iconbitmap(pyxe_favicon)
+            
+            #top.iconbitmap(pyxe_favicon) # Doesn't work on Linux
+            top.iconphoto(False, ImageTk.PhotoImage(file=pyxe_favicon))
+
 
             about_labelframe = LabelFrame(top,labelanchor="nw",text="Developer Profile:",width=600,height=200,font=('',10))
             about_labelframe.pack(fill="both",expand=True,padx=3,pady=3)
@@ -208,8 +211,14 @@ class GUI:
         self.frame.grid(sticky="nsew", padx=2, pady=2)
 
         #  GUI size and placement on the screen
-        self.screen_width = GetSystemMetrics(0)
-        self.screen_height = GetSystemMetrics(1)
+        if(platform.system() == 'Windows'):
+            from win32api import GetSystemMetrics
+            self.screen_width = GetSystemMetrics(0)
+            self.screen_height = GetSystemMetrics(1)
+        elif(platform.system() == 'Linux'):
+            self.screen_width = self.root.winfo_screenwidth()
+            self.screen_height = self.root.winfo_screenheight()
+        
         self.app_width = 800
         self.app_height = 430
         self.root.geometry(str(self.app_width) + "x" + str(self.app_height) + "+" + str(
@@ -217,7 +226,8 @@ class GUI:
             int((self.screen_height / 2) - (self.app_height / 2))))
 
         #  The icon that appears in the corner of the executable
-        self.root.iconbitmap(pyxe_favicon)
+        #self.root.iconbitmap(pyxe_favicon)
+        self.root.iconphoto(False, ImageTk.PhotoImage(file=pyxe_favicon))
 
         #  Restricts the GUI from being resized
         self.root.resizable(False, False)
@@ -399,7 +409,11 @@ class PythonFile:
             Pyxe.compiler_text.delete("1.0", END)
             Pyxe.compiler_text.configure(state="disabled")
             pyxe_compiler(list(self.__dict__.values()))
-            os.startfile(Pyxe.executable_info.distpath.split("=")[1])
+            if platform.system() == "Windows":
+                os.startfile(Pyxe.executable_info.distpath.split("=")[1])
+            else:
+                opener = "open" if sys.platform == "darwin" else "xdg-open"
+                subprocess.call([opener, Pyxe.executable_info.distpath.split("=")[1]])
             shutil.rmtree(Pyxe.executable_info.specpath.split("=")[1])
         return
 
@@ -442,9 +456,6 @@ if __name__ == '__main__':
     #  Detect operating system so PyInstaller knows whether to compile for Windows, MacOS, or Linux
     detected_os = platform.system()
 
-    #  Pyxe currently supports Windows only since I haven't set up a linux or Mac computer to handle different OS'es
-    if (detected_os == 'Windows'):
-        
-        #  Main process for Pyxe
-        Pyxe = GUI()
-        Pyxe.run_autocompiler()
+    #  Main process for Pyxe
+    Pyxe = GUI()
+    Pyxe.run_autocompiler()
