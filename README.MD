@@ -37,7 +37,7 @@ Both Tkinter and PyInstaller do run on Mac and Linux, so if you're interested an
 #### Project Folder Structure: 🐍
     (Folder | Filename):    Description:
     Pyxe:               Root project folder  
-    -build\:             Default build directory for PyInstaller  
+    -build_folder\:      Default build directory for PyInstaller  
     -ico\:               Favicon.ico that tkinter looks for when Pyxe starts  
     -temp\:              Default directory for the temp files PyInstaller creates  
     -test_scripts\:      Directory of test scripts you can compile to test Pyxe out  
@@ -59,6 +59,11 @@ Setting Up Virtual Environment:
  4. `pip install -r requirements.txt`
 
 Install Modules Without Virtual Environment:
+   NOTE: If you have a Linux system, please ensure that you have some packages installed that are not available through downloading the modules listed in 'requirements.txt'. Here are the packages you will need to install:
+ ```
+ sudo apt update
+ sudo apt install python3-pip python3-tk python3-pil.imagetk
+ ```
  1. `pip install -r requirements.txt`
 
 ---
