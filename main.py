@@ -38,7 +38,7 @@ def resource_path(relative_path):
 #  Global variables that can be accessed by any function in this Python file
 project_dir = os.getcwd()
 ico_directory = resource_path("ico")
-pyxe_favicon = os.path.join(ico_directory, "favicon.ico")
+pyxe_favicon = os.path.join(ico_directory, "favicon.png")
 
 #  Make GUI elements
 class GUI:
