@@ -65,7 +65,7 @@ class GUI:
             about_labelframe = LabelFrame(top,labelanchor="nw",text="Developer Profile:",width=600,height=200,font=('',10))
             about_labelframe.pack(fill="both",expand=True,padx=3,pady=3)
 
-            profile_photo = Image.open(resource_path(r"pyxe_resources\data\DutytoDevelop_Profile_Pic.png"))
+            profile_photo = Image.open(resource_path("pyxe_resources/data/DutytoDevelop_Profile_Pic.png"))
             resized = profile_photo.resize((150,150))
             profile_photo_resize = ImageTk.PhotoImage(resized)
 
