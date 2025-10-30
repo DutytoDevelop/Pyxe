@@ -110,8 +110,7 @@ _Note: _
 
 ## To-Do:
 
- - 🚧 Implement system to be compatible with multiple operating systems
- - 🚧 Fix code to allow importing bundled data from multiple directories instead of just one
+ - 🚧 Fix code to allow PyInstaller to bundle data when interacting with the 'Data Folder' button. When you need to bundle data from multiple directories, the Pyxe application should provide the PyInstaller argument for the data folders and allow that data to be bundled in properly. For now, use 'One File'. 
 
 ## Credit:
 
