@@ -14,7 +14,7 @@
 
 ### Compatibility: ✔️
 ***Please review this section to see if you'll be able to use Pyxe on your machine.***
-Because of my current setup, and the fact that PyInstaller only lets you compile executables on the same operating system you run it on which is understandable, I'll go ahead and inform the Mac and Linux users out there that Pyxe isn't yet ready for use, yet. I have a goal to get a CI/CD pipeline set up where I'll be able to spin up Mac, Windows, and Linux machines on the fly in order for me to get Pyxe to be Mac, Windows, and Linux compatible within the next week.
+Because of my current setup, and the fact that PyInstaller only lets you compile executables on the same operating system you run it on which is understandable, I'll go ahead and inform the Mac and Linux users out there that Pyxe is now partially ready for use, but the ability to create an executable using the 'One Dir' option is not operable yet, so use the 'One File' in the Pyxe script and ensure you have the packages installed that lets PyInstaller run smoothly.
 
 Message from the developers of PyInstaller:
 
