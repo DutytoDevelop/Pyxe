@@ -4,9 +4,9 @@
 ---
 <center>
 ### How it looks: 📸
-![Screenshot of Pyxe with filled-in data](/build_folder/Pyxe_Screenshot.PNG "Screenshot of Pyxe in action!")
-![Screenshot of Pyxe during compilation](/build_folder/Pyxe_v2.PNG "Screenshot of Pyxe during compilation!")
-![Running the executable after it has successfully compiled](/build_folder/Pyxe_Screenshot2.PNG "Running the executable after it has successfully compiled")
+![Screenshot of Pyxe with filled-in data](https://github.com/DutytoDevelop/Pyxe/blob/main/build_folder/Pyxe_Screenshot.PNG "Screenshot of Pyxe in action!")
+![Screenshot of Pyxe during compilation](https://github.com/DutytoDevelop/Pyxe/blob/main/build_folder/Pyxe_v2.PNG?raw=true "Screenshot of Pyxe during compilation!")
+![Running the executable after it has successfully compiled](https://github.com/DutytoDevelop/Pyxe/blob/main//build_folder/Pyxe_Screenshot2.PNG "Running the executable after it has successfully compiled")
 </center>
 ---
 
