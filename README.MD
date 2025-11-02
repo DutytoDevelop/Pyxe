@@ -87,7 +87,7 @@ Install Modules Without Virtual Environment:
 
 **Pyxe Screenshot:**
 
-![Screenshot of the Pyxe GUI](https://github.com/DutytoDevelop/Pyxe/blob/main/test_scripts/Successful%20Builds/Pyxe_v2.PNG)
+![Screenshot of Pyxe during compilation](https://github.com/DutytoDevelop/Pyxe/blob/main/build_folder/Pyxe_v2.PNG?raw=true "Screenshot of Pyxe during compilation!")
 
 4. Before you begin compiling your Python project, please review the documentation online for PyInstaller to ensure you're bundling data into the executable correctly.
 
@@ -114,7 +114,7 @@ _Please see: https://stackoverflow.com/questions/7674790/bundling-data-files-wit
 
 Successful compilation of test Python script I've provided in Pyxe repository:
 
-![Successfully compiled PyGame example script](https://github.com/DutytoDevelop/Pyxe/blob/main/test_scripts/Successful%20Builds/Pyxe_Success_v2.PNG)
+![Running the executable after it has successfully compiled](https://github.com/DutytoDevelop/Pyxe/blob/main//build_folder/Pyxe_Screenshot2.PNG?raw=true "Running the executable after it has successfully compiled")
 _Note: _
 
 ---
