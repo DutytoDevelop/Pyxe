@@ -1,6 +1,14 @@
 # Pyxe 🧚
-***Python Tkinter GUI  + PyInstaller = Easy to use auto-compiler for your Python projects*** ▶️
- 
+<center>***Python Tkinter GUI  + PyInstaller = Easy to use auto-compiler for your Python projects*** ▶️</center>
+
+---
+<center>
+### How it looks: 📸
+![Screenshot of Pyxe with filled-in data](/build_folder/Pyxe_Screenshot.PNG "Screenshot of Pyxe in action!")
+![Screenshot of Pyxe during compilation](/build_folder/Pyxe_v2.PNG "Screenshot of Pyxe during compilation!")
+![Running the executable after it has successfully compiled](/build_folder/Pyxe_Screenshot2.PNG "Running the executable after it has successfully compiled")
+</center>
+---
 
 ## Table of Contents: 🤖
  - Compatibility
